@@ -1,3 +1,37 @@
 <div>
   <h1>Welcome to {{ title }}!</h1>
 </div>
+
+<div class="main-container">
+  <div class="task-list">
+    @for (task of tasks; track $index) {
+      <div class="task-item">
+        <span>{{ task.text }}</span>
+
+        <div class="task-actions">
+          <button class="action-btn" (click)="editTask(task)">editar</button>
+          <button class="action-btn" (click)="deleteTask(task.text)">eliminar</button>
+        </div>
+        
+      </div>
+    } 
+  </div>
+
+  <div class="sub-container">    
+    <div class="button-container">
+
+      <button 
+        class="add-btn" 
+        (click)="addTask()">
+        Agregar
+      </button>
+
+      <button 
+        class="update-btn" 
+        (click)="updateTask()">
+        Actualizar
+      </button>
+
+    </div>
+  </div>
+</div>
